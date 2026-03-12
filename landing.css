@@ -1,0 +1,15 @@
+.gallery img{
+width:100%;
+border-radius:5px;
+}
+
+.img-doc{
+height:380px;
+object-fit:cover;
+}
+
+.img-ngang{
+height:180px;
+object-fit:cover;
+margin-bottom:15px;
+}
