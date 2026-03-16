@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<!--Đây tiêu đề hiển thị trên tab trình duyệt-->
+<title>NowwFruits</title>
+
+<!-- Đây là liên kết các file CSS bên ngoài -->
+<link rel="stylesheet" href="cuahang.css">
+<link rel="stylesheet" href="indam.css">
+
+<!-- Đây là tham khảo lấy từ thư viện Bootstrap W3school -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <!-- Đây là thiết kế giao diện chung của trang -->
+<style>
+body{
+    font-family: Arial;
+    margin:0;
+    background:#f5f5f5;
+}
+
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 60px;
+    background:white;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    color:#7bbf00;
+}
+
+nav a{
+    margin:0 15px;
+    text-decoration:none;
+    color:#333;
+}
+
+
+
+.banner{
+    background:url("https://images.pexels.com/photos/1132047/pexels-photo-1132047.jpeg") center/cover;
+    height:350px;
+    display:flex;
+    align-items:center;
+    padding-left:80px;
+    color:white;
+}
+
+.banner h1{
+    font-size:40px;
+}
+
+.banner button{
+    padding:12px 25px;
+    background:#7bbf00;
+    border:none;
+    color:white;
+    margin-top:10px;
+}
+
+
+
+.category{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+    padding:40px 80px;
+}
+
+.box{
+    background:white;
+    padding:20px;
+    text-align:center;
+    border-radius:8px;
+}
+
+.box img{
+    width:120px;
+}
+
+
+
+.products{
+    padding:40px 80px;
+}
+
+.products h2{
+    text-align:center;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+    margin-top:30px;
+}
+
+.product{
+    background:white;
+    padding:20px;
+    text-align:center;
+    border-radius:8px;
+}
+
+.product img{
+    width:120px;
+}
+
+.price{
+    color:#7bbf00;
+    font-weight:bold;
+}
+
+
+
+.sale{
+    background:url("https://images.unsplash.com/photo-1478147427282-58a87a120781") center/cover;
+    padding:60px;
+    color:white;
+    text-align:center;
+}
+
+
+
+footer{
+    background:#222;
+    color:white;
+    padding:40px;
+    text-align:center;
+}
+
+input{
+    padding:10px;
+    width:250px;
+}
+
+button.subscribe{
+    padding:10px 20px;
+    background:#7bbf00;
+    border:none;
+    color:white;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <!--Đây là Logo web -->
+<div class="logo">NowwFruits</div>
+
+<nav>
+  <!-- Đây là phần Menu điều hướng se chứa các đường dân đi đến-->
+<a href="landingage.html">Trang chủ</a>
+<a href="gioithieu.html">Giới thiệu</a>
+<a href="cuahang.html">Cửa hàng</a>
+<a href="kienthuc.html">Kiến thức</a>
+<a href="lienhe.html">Liên hệ</a>
+</nav>
+</header>
+<!--Đây là tiêu đề -->
+<section class="banner">
+<div>
+<h1>100% tự nhiên</h1>
+<p>Giảm giá đặc biệt hôm nay</p>
+<button>MUA NGAY</button>
+</div>
+</section>
+
+
+<!--Đây là phần nút tìm kiếm-->
+<div class="search-box">
+<input type="text" id="searchInput" placeholder="Tìm kiếm trái cây...">
+<button onclick="timKiem()">Tìm</button>
+
+</div>
+<div class="danhmuc">
+    <button onclick="locSanPham('all')">Tất cả</button>
+    <button onclick="locSanPham('noidia')">Trái cây nội địa</button>
+    <button onclick="locSanPham('nhapkhau')">Trái cây nhập khẩu</button>
+    <button onclick="locSanPham('dinhduong')">Trái cây dinh dưỡng</button>
+</div>
+
+<!--Đây là phần lọc sản phẩm ở tìm kiếm-->
+<script>
+
+function timKiem(){
+
+let input = document.getElementById("searchInput").value.toLowerCase();
+let sanpham = document.querySelectorAll(".product");
+
+sanpham.forEach(function(sp){
+
+let ten = sp.querySelector("p").innerText.toLowerCase();
+
+if(ten.includes(input)){
+sp.style.display = "";
+}else{
+sp.style.display = "none";
+}
+
+});
+
+}
+
+</script>
+
+
+
+<!--Đây là phần lọc sản phẩm ở 3 danh mục-->
+<script>
+function locSanPham(loai){
+
+let sanpham = document.querySelectorAll(".product");
+
+sanpham.forEach(function(sp){
+
+if(loai === "all"){
+sp.style.display = "";
+}
+
+else if(sp.classList.contains(loai)){
+sp.style.display = "";
+}
+
+else{
+sp.style.display = "none";
+}
+
+});
+
+}
+</script>
+
+<div class="products"id="fruit-list">
+<!--Trái cây nội địa-->
+<div class="product noidia">
+<img src="https://i.postimg.cc/FHcWB4xw/images-(5).jpg" class="img-fluid">
+<p>Chanh</p>
+<span>210.000đ</span>
+</div>
+
+<div class="product noidia">
+<img src="https://i.postimg.cc/FHcWB4xw/images-(5).jpg" class="img-fluid">
+<p>Xoài</p>
+<span>210.000đ</span>
+</div>
+
+<div class="product noidia">
+<img src="https://i.postimg.cc/FHcWB4xw/images-(5).jpg" class="img-fluid">
+<p>Dứa</p>
+<span>210.000đ</span>
+</div>
+
+<div class="product noidia">
+<img src="https://i.postimg.cc/FHcWB4xw/images-(5).jpg" class="img-fluid">
+<p>Chanh</p>
+<span>210.000đ</span>
+</div>
+
+<div class="product noidia">
+<img src="https://i.postimg.cc/FHcWB4xw/images-(5).jpg" class="img-fluid">
+<p>Chanh</p>
+<span>210.000đ</span>
+</div>
+
+<div class="product noidia">
+<img src="https://i.postimg.cc/FHcWB4xw/images-(5).jpg" class="img-fluid">
+<p>Chanh</p>
+<span>210.000đ</span>
+</div>
+
+<div class="product noidia">
+<img src="https://i.postimg.cc/FHcWB4xw/images-(5).jpg" class="img-fluid">
+<p>Chanh</p>
+<span>210.000đ</span>
+</div>
+
+<div class="product noidia">
+<img src="https://i.postimg.cc/FHcWB4xw/images-(5).jpg" class="img-fluid">
+<p>Chanh</p>
+<span>210.000đ</span>
+</div>
+
+
+<!--Trái cây nhập khẩu-->
+<div class="products"id="fruit-list">
+<div class="product nhapkhau">
+<img src="luu.jpg">
+<p>Lựu</p>
+<span>170.000đ</span>
+</div>
+<div class="product nhapkhau">
+<img src="https://i.postimg.cc/FHcWB4xw/images-(5).jpg" class="img-fluid">
+<p>Xoài</p>
+<span>210.000đ</span>
+</div>
+
+<div class="product nhapkhau">
+<img src="https://i.postimg.cc/FHcWB4xw/images-(5).jpg" class="img-fluid">
+<p>Dứa</p>
+<span>210.000đ</span>
+</div>
+
+<div class="product nhapkhau">
+<img src="https://i.postimg.cc/FHcWB4xw/images-(5).jpg" class="img-fluid">
+<p>Chanh</p>
+<span>210.000đ</span>
+</div>
+
+<div class="product nhapkhau">
+<img src="https://i.postimg.cc/FHcWB4xw/images-(5).jpg" class="img-fluid">
+<p>Chanh</p>
+<span>210.000đ</span>
+</div>
+
+<div class="product nhapkhau">
+<img src="https://i.postimg.cc/FHcWB4xw/images-(5).jpg" class="img-fluid">
+<p>Chanh</p>
+<span>210.000đ</span>
+</div>
+
+<div class="product nhapkhau">
+<img src="https://i.postimg.cc/FHcWB4xw/images-(5).jpg" class="img-fluid">
+<p>Chanh</p>
+<span>210.000đ</span>
+</div>
+
+<div class="product nhapkhau">
+<img src="https://i.postimg.cc/FHcWB4xw/images-(5).jpg" class="img-fluid">
+<p>Chanh</p>
+<span>210.000đ</span>
+</div>
+
+
+
+<!--Trái cây dinh dương-->
+<div class="products"id="fruit-list">
+<div class="product dinhduong">
+<img src="dualeo.jpg">
+<p>Dưa leo</p>
+<span>50.000đ</span>
+</div>
+<div class="product dinhduong">
+<img src="https://i.postimg.cc/FHcWB4xw/images-(5).jpg" class="img-fluid">
+<p>Xoài</p>
+<span>210.000đ</span>
+</div>
+
+<div class="product dinhduong">
+<img src="https://i.postimg.cc/FHcWB4xw/images-(5).jpg" class="img-fluid">
+<p>Dứa</p>
+<span>210.000đ</span>
+</div>
+
+<div class="product dinhduong">
+<img src="https://i.postimg.cc/FHcWB4xw/images-(5).jpg" class="img-fluid">
+<p>Chanh</p>
+<span>210.000đ</span>
+</div>
+
+<div class="product dinhduong">
+<img src="https://i.postimg.cc/FHcWB4xw/images-(5).jpg" class="img-fluid">
+<p>Chanh</p>
+<span>210.000đ</span>
+</div>
+
+<div class="product dinhduong">
+<img src="https://i.postimg.cc/FHcWB4xw/images-(5).jpg" class="img-fluid">
+<p>Chanh</p>
+<span>210.000đ</span>
+</div>
+
+<div class="product dinhduong">
+<img src="https://i.postimg.cc/FHcWB4xw/images-(5).jpg" class="img-fluid">
+<p>Chanh</p>
+<span>210.000đ</span>
+</div>
+
+<div class="product dinhduong">
+<img src="https://i.postimg.cc/FHcWB4xw/images-(5).jpg" class="img-fluid">
+<p>Chanh</p>
+<span>210.000đ</span>
+</div>
+
+</div>
+</div>
+
+<!--Đây là phần lọc sản phẩm theo chư cái-->
+<script>
+const lists = document.querySelectorAll(".products");
+
+lists.forEach(products => {
+
+const items = Array.from(products.querySelectorAll(".product"));
+
+items.sort((a,b)=>{
+return a.querySelector("p").innerText.localeCompare(
+b.querySelector("p").innerText
+);
+});
+
+products.innerHTML="";
+items.forEach(el => products.appendChild(el));
+
+});
+</script>
+</div>
+
+</div>
+</body>

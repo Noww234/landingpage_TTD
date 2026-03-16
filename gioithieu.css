@@ -86,3 +86,23 @@ h1{
 .navbar a:hover{
     color:#2e7d32;
 }
+.product-box{
+display:flex;
+justify-content:center;
+gap:40px;
+margin-top:30px;
+}
+
+.box{
+text-align:center;
+}
+
+.box img{
+width:180px;
+height:180px;
+object-fit:cover;
+border-radius:10px;
+}
+section{
+padding:40px 0;
+}
