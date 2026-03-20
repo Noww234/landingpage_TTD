@@ -1,0 +1,32 @@
+
+.shop-link {
+    margin: 40px auto;
+    max-width: 800px;
+    background: #fff;
+    text-align: center;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.shop-link h2 {
+    margin-bottom: 10px;
+}
+
+.shop-link p {
+    color: #666;
+}
+
+.shop-btn {
+    display: inline-block;
+    margin-top: 15px;
+    background: #ff9800;
+    color: white;
+    padding: 12px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.shop-btn:hover {
+    background: #e68900;
+}
