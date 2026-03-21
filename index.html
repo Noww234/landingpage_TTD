@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="styte.css">
 <link rel="stylesheet" href="landingpage.css">
 <link rel="stylesheet" href="indam.css">
-
+<link rel="stylesheet" href="spnoibat.css">
 <!-- Đây là tham khảo lấy từ thư viện Bootstrap W3school -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -216,59 +216,57 @@ button.subscribe{
 <!-- Đây là tiêu đề sản phẩm nổi bật -->
 <h2 class="title">Sản phẩm nổi bật</h2>
 <div class="product-menu">
-
-<span class="active">MỚI NHẤT</span>
-<span>GIẢM GIÁ</span>
-<span>BÁN CHẠY</span>
-
+  <span class="active" data-type="all">MỚI NHẤT</span>
+  <span data-type="sale">GIẢM GIÁ</span>
+  <span data-type="hot">BÁN CHẠY</span>
 </div>
+
 <div class="container">
   <div class="row">
 
-    <div class="col-sm-3 product">
+    <div class="col-sm-3 product" data-type="new">
       <img src="https://i.postimg.cc/FHcWB4xw/images-(5).jpg" class="img-fluid">
       <p>Chanh</p>
       <span>210.000 đ</span>
     </div>
 
-    <div class="col-sm-3 product">
+    <div class="col-sm-3 product" data-type="hot">
       <img src="https://i.postimg.cc/W4w9swCS/20200710-075731-512605-images-max-1800x1800-jpg-e2eb81c056.jpg" class="img-fluid">
       <p>Lựu</p>
       <span>170.000 đ</span>
     </div>
 
-    <div class="col-sm-3 product">
+    <div class="col-sm-3 product" data-type="sale">
       <img src="https://i.postimg.cc/NMNpHfg4/images-(6).jpg" class="img-fluid">
       <p>Dưa leo</p>
       <span>50.000 đ</span>
     </div>
 
-    <div class="col-sm-3 product">
+    <div class="col-sm-3 product" data-type="new">
       <img src="https://i.postimg.cc/6qgcMj4y/item-F141093-4fa0.jpg" class="img-fluid">
       <p>Cà chua</p>
       <span>320.000 đ</span>
     </div>
 
-    <div class="col-sm-3 product">
-    
+    <div class="col-sm-3 product" data-type="sale">
       <img src="https://i.postimg.cc/6QWP2Prs/images-(7).jpg" class="img-fluid">
       <p>Táo xanh</p>
       <span>220.000 đ</span>
     </div>
 
-    <div class="col-sm-3 product">
-      <img src="https://i.postimg.cc/L51QFFpP/images-(😎.jpg" class="img-fluid">
+    <div class="col-sm-3 product" data-type="hot">
+      <img src="https://i.postimg.cc/L51QFFpP/images-(7).jpg" class="img-fluid">
       <p>Dừa sáp</p>
       <span>35.000 đ</span>
     </div>
 
-    <div class="col-sm-3 product">
+    <div class="col-sm-3 product" data-type="sale">
       <img src="https://i.postimg.cc/SxqT3Pts/chanh-d-y-grande.jpg" class="img-fluid">
       <p>Chanh dây</p>
       <span>190.000 đ</span>
     </div>
 
-    <div class="col-sm-3 product">
+    <div class="col-sm-3 product" data-type="hot">
       <img src="https://i.postimg.cc/Ls8y61pr/tai-xuong-(1).jpg" class="img-fluid">
       <p>Chuối</p>
       <span>150.000 đ</span>
@@ -276,7 +274,34 @@ button.subscribe{
 
   </div>
 </div>
-</section>
+<script>
+const buttons = document.querySelectorAll('.product-menu span');
+const products = document.querySelectorAll('.product');
+
+buttons.forEach(btn => {
+  btn.addEventListener('click', () => {
+
+    // active
+    buttons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const type = btn.getAttribute('data-type');
+
+    products.forEach(p => {
+      if (type === 'all') {
+        p.style.display = 'block';
+      } else {
+        if (p.getAttribute('data-type') === type) {
+          p.style.display = 'block';
+        } else {
+          p.style.display = 'none';
+        }
+      }
+    });
+
+  });
+});
+</script>
 
 <!-- Đây là tiêu đề khuyến mai -->
 <section class="sale-week">
@@ -333,48 +358,69 @@ button.subscribe{
 
     </div>
     <div></div>
-    
-    <br><br><br>
-
-<div class="container gallery">
-  <div class="row">
-<br><br><br>
-    <div class="col-sm-3">
-      <img src="https://i.postimg.cc/x1R3Yc02/(anhpng-com)-nuoc-ep-trai-cay-(30).webp" class="img-doc">
-    </div>
-
-    <div class="col-sm-9">
-      <div class="row">
-
-        <div class="col-sm-4">
-          <img src="https://i.postimg.cc/gJc9jFWh/12-loai-trai-cay-tot-cho-tre-an-dam.jpg" class="img-ngang">
-        </div>
-
-        <div class="col-sm-4">
-          <img src="https://i.postimg.cc/43J2b6F1/images-(12).jpg" class="img-ngang">
-        </div>
-
-        <div class="col-sm-4">
-          <img src="https://i.postimg.cc/5t3GZ7Cj/7f916ded027eef14543550b385a4306cqua-cam-1.jpg" class="img-ngang">
-        </div>
-
-        <div class="col-sm-6">
-          <img src="https://i.postimg.cc/qqzvtCTL/Noble-100Naturals-logo-R-fa0cab34-627e-4573-b40c-8f8fd4840082-901x.webp" class="img-ngang">
-        </div>
-
-        <div class="col-sm-6">
-          <img src="https://i.postimg.cc/pdRVfSvW/bao-quan-trai-cay-trong-tu-lanh-the-nao-cho-dung.jpg" class="img-ngang">
-        </div>
-
-      </div>
-    </div>
-
   </div>
-</div>
 
+<section class="smart-section">
+
+  <div class="box big">
+    <h3>🍉 Combo tiết kiệm</h3>
+    <p>Mua combo trái cây giá rẻ hơn 30%</p>
+    <button onclick="window.location.href='giamgia.html'">Xem ngay</button>
   </div>
-</div>
 
+  <div class="box">
+    <h4>🚚 Giao nhanh</h4>
+    <p>Trong 2 giờ</p>
+  </div>
+
+  <div class="box">
+    <h4>🍃 Tươi 100%</h4>
+    <p>Không hóa chất</p>
+  </div>
+
+  <div class="box">
+    <h4>💰 Hoàn tiền</h4>
+    <p>Nếu không hài lòng</p>
+  </div>
+
+  <div class="box big">
+    <h3>🔥 Flash Sale</h3>
+    <p>Giảm giá cực sốc hôm nay</p>
+    <button onclick="window.location.href='giamgia.html'">Mua ngay</button>
+  </div>
+</section>
+
+</div>
+<section class="extra-section">
+
+  <div class="review-box">
+    <h3>⭐ Khách hàng nói gì</h3>
+    <p>"Trái cây rất tươi, giao nhanh!"</p>
+    <span>- Thanh Duy </span>
+  </div>
+
+  <div class="deal-box">
+    <h3>🎁 Ưu đãi hôm nay</h3>
+    <p>Mua 2kg tặng 500g</p>
+    <button onclick="window.location.href='giamgia.html'">Mua ngay</button>
+  </div>
+
+  <div class="stat-box">
+    <div>
+      <h4>500+</h4>
+      <p>Đơn/ngày</p>
+    </div>
+    <div>
+      <h4>1000+</h4>
+      <p>Khách hàng</p>
+    </div>
+    <div>
+      <h4>99%</h4>
+      <p>Hài lòng</p>
+    </div>
+  </div>
+
+</section>
 <footer>
 
 <h3>Đăng ký để nhận cập nhật</h3>
